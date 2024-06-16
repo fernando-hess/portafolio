@@ -2,7 +2,7 @@
 # Portafolio de Fernando Hernández
 
 <p align="center" >
-     <img width="600" height="600" src="./assets/miPortafolio.png">
+     <img width="600" src="./assets/miPortafolio.png">
 </p>
 
 ### ¡Bienvenido a mi portafolio personal!
@@ -34,7 +34,7 @@ Para cualquier consulta, puedes contactarme a través de [dhofher.hess@gmail.com
 <!-- ## Capturas de Pantalla -->
 
 <p align="center" >
-     <img width="600" height="600" src="./assets/SkillsCaptura.png">
+     <img width="600" src="./assets/SkillsCaptura.png">
 </p>
 
 ---
