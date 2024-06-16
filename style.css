@@ -69,8 +69,9 @@ Enlace de la documentación oficial!
 https://en.bem.info/methodology/quick-start/*/
 
 /* -------------------------------------------------------------------- */
-/* AGREGAR!!! */
-/* Agregar certificado de cursos y formaciones!!! */
+/* AGREGAR */
+/* --- Opciones ---*/
+/* -agregar certificado de cursos y formaciones */
 
 /* -------------------------------------------------------------------- */
 
@@ -248,11 +249,7 @@ section.title {
     border-radius: 50%;
     border: 5px solid #97c4ca;
     transition: transform 0.5s, box-shadow 0.5s, border 0.5s;
-    
-    
 }
-
-
 
 .title__profile:hover {
     transform: translateY(-10px);
@@ -264,7 +261,6 @@ section.title {
     list-style: none;
     padding: 0;
     margin: 0;
-
 }
 
 .title__network__item {
@@ -349,9 +345,7 @@ section.title {
     font-weight: normal;
 }
 
-
 /*Sección About*/
-/* Sección sobre mí */
 section.about {
     background-color: var(--color-de-fondo-oscuro); 
     padding: 40px 20px; 
@@ -394,11 +388,6 @@ section.about {
     padding: 1rem 0;
 }
 
-
-
-
-
-
 /* sección de Skills */
 section.skills {
     background-color: var(--color-de-fondo); 
@@ -411,7 +400,6 @@ section.skills {
     font-size: 2.5rem; 
     margin: 30px; 
     color: #333; /* usar un tono parecido a #0093ad */
-
 }
 
 /* Contenedor de habilidades */
@@ -421,7 +409,6 @@ section.skills {
     gap: 40px; 
     flex-wrap: wrap;
 }
-
 
 /* Estilos para cada habilidad */
 .skills__box {
@@ -466,8 +453,6 @@ section.skills {
     color: #00098e;
     transition: transform .5s ease;
 }
-
-
 
 /* Estilos del nombre de la habilidad */
 .skills__name {
@@ -592,23 +577,16 @@ section.skills {
     animation: subirYGirar 1s ease-in-out infinite;
 }
 
-/* efecto para icono de react */
-/* respaldo de efecto react */
+/* Efecto react anterior */
 /* .skills__box:hover .fa-react {
     color: #2ec7ea; 
     animation: spin 2s linear infinite, glow 1.5s ease-in-out infinite;
-
 } */
 
 .fa-react {
     color: #58C4DC;
     transition: scale .7s ease;
 }
-/* .skills__box:hover .fa-react {
-    color: #2ec7ea; 
-    animation: spin 2s linear infinite;
-    scale: 1.3;
-} */
 
 .skills__box:hover .fa-react {
     color: #26e6ff; 
@@ -629,10 +607,6 @@ section.skills {
 } */
 /* ------------------------------------------------------ */
 
-
-
-/* cambiar */
-
 .skills__box:hover .fa-js {
     animation: subirYGirar 3s ease-in-out infinite;
 }
@@ -646,9 +620,7 @@ section.skills {
     color: #806AFB;
 }
 
-
 /*Sección Hobbies*/
-
 section.hobbies{
     background-color: var(--color-de-fondo);
     padding: 10px 175px 60px; 
@@ -710,13 +682,17 @@ section.hobbies{
     color: #12d9f4;
 }
 
-
 /* Animación estándar para todos los hobbies ------------------------------*/
-
 /* Animación hobbies */
 @keyframes bounce-vertical {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
+}
+
+@keyframes swing {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+    100% { transform: rotate(0deg); }
 }
 
 .hobbies__box:hover .hobbies__icono {
@@ -732,7 +708,7 @@ section.hobbies{
     animation: swing 1.2s ease-in-out infinite;
 }
 
-/* ---------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------ */
 
 /* Otros animaciones */
 @keyframes float {
@@ -740,18 +716,11 @@ section.hobbies{
     50% { transform: translateY(-10px); }
 }
 
-@keyframes swing {
-    0% { transform: rotate(0deg); }
-    50% { transform: rotate(15deg); }
-    100% { transform: rotate(0deg); }
-}
-/* agregar mas animaciones */
+/* ------------------------------------------------------------ */
 
 .hobbies__box:hover {
     transform: translateY(-20px); /* Levantar contenedor*/
-    /* box-shadow: 5px 5px 12px #016c9e; */
     box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.2);
-
 }
 
 .hobbies__box:hover .hobbies__name {
@@ -760,17 +729,7 @@ section.hobbies{
     font-weight: 600;
 }
 
-/* animaciones */
-
-/* .hobbies__box:hover .fa-music {
-    animation: swing 1s ease-in-out infinite;
-} */
-
-/* prueba */
-
-
 /* Experiencia Académica*/
-
 section.academic{
     background-color: var(--color-de-fondo-oscuro);
     text-align: center;
@@ -819,7 +778,6 @@ section.academic{
 .academic__courses__item__title, 
 .academic__courses__item__subtitle {
     text-align: left;
-
 }
 
 /* imagenes formacion academica */
@@ -847,7 +805,6 @@ section.academic{
 }
 
 /* experiencia*/
-
 section.experience{
     background-color: var(--color-de-fondo);
     text-align: center;
@@ -875,7 +832,6 @@ section.experience{
 .experience .experience__box:nth-of-type(even) {
     display: flex;
     flex-direction: row-reverse;
-    
 }
 
 .experience__img {
@@ -909,8 +865,6 @@ section.experience{
     box-shadow: 0 0 20px rgb(37, 63, 99);
 }
 
-
-
 .experience__info {
     margin: 0;
     padding: 100px;
@@ -926,13 +880,12 @@ section.experience{
     margin: 15px 0;
     padding: 0;
     text-align: left;
-
     transition: transform 0.4s ease;
 }
 
 .experience__title:hover {
     transform: scale(1.05); 
-    /* cambiar tipo de sombra */
+    /* cambiar sombra */
     text-shadow: 0 0 20px rgb(62, 83, 124);
 }
 
@@ -980,24 +933,8 @@ section.experience{
     border: 1px solid #16a1bd;
 }
 
-
-
 /*Contacto*/
- 
-/* BORRADOR */
-/* contacto prueba */
-/* Sección de Contacto */
-/* Corregir comentarios */
-/* Sección de Contacto */
-/* Estilos para el efecto de etiqueta flotante */
-/*Contacto*/
- 
-/* BORRADOR */
-/* contacto prueba */
-/* Sección de Contacto */
-/* Corregir comentarios */
 
-/* Evitar que el textarea crezca !!!!! */
 section.formcontato {
     background-color: var(--color-de-fondo-oscuro);
     padding: 30px 175px;
@@ -1119,7 +1056,6 @@ section.formcontato {
 .formcontato__botao:hover {
     background-color:  #00b2ca;
     /* background-color: #008cb3; */
-    
     /* color anterio: #0056b3 */
     transform: scale(1.05);
 }
@@ -1135,9 +1071,7 @@ section.formcontato {
 .inputGroup input, .inputGroup textarea {
     font-size: 100%;
     padding: 0.8em;
-
     line-height: 1.3;
-
     outline: none;
     border: 2px solid rgb(200, 200, 200);
     background-color: white;
@@ -1202,20 +1136,7 @@ section.formcontato {
     border-color: #00fbff;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/*footeer*/
 /* Footer */
-
 
 section.footer {
     background-color: #081729e6;
@@ -1225,8 +1146,8 @@ section.footer {
     color: white;
     font-size: 1.8rem;
 }
-/* colores anteriores: #140732
-#020f1ae1
+/* 
+colores anteriores: #140732 #020f1ae1
  */
 
 .footer__rodape {
@@ -1253,10 +1174,8 @@ section.footer {
     transform: scale(1.05);
     color: #12d9f4; 
     text-shadow: 0 0 20px #12d9f4;
-    transform-origin: center;
+    transform-origin: 20% 50%;
 }
-
-
 
 /* barra de desplazamiento */
 /* Para navegadores basados en WebKit */
@@ -1356,7 +1275,6 @@ Utiliza las referencias de los breakpoints @media abajo */
     }
 
     /* Title */
-    /*title*/
 section.title {
     padding: 50px 80px;
     margin-top: 6rem;

@@ -1,8 +1,7 @@
-
-# Portafolio de Fernando Hernández
+# Challenge ONE | Front End - Portafolio | Fernando Hernández
 
 <p align="center" >
-     <img width="600" src="./assets/miPortafolio.png">
+     <img width="600" src="./assets/Mi_portafolio.png">
 </p>
 
 ### ¡Bienvenido a mi portafolio personal!
