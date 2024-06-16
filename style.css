@@ -1,0 +1,1895 @@
+/*CSS Reset / Normalize*/
+/* Hemos disponibilizado el básico de reset de estilos. Si quieren, añadan más informaciones 
+en las secciones señaladas */
+/*Já deixaremos o básico de reset de estilos. Caso queira adicionar mais informações
+coloque nas sessões indicadas*/
+
+:root{
+    /* Inserta la variable de los otros colores inspeccionando el exemplo de figma */
+    /*Se esforce para trabalhar com variáveis, é uma dica profissional valiosa*/
+   --color-de-fondo: #F5F5F5;
+   --color-de-link: #000000;
+   --color-de-fondo-oscuro: #e4f2f8;
+   --main-color: #12d9f4;
+}
+   
+
+/* 
+    Colores anteriores: 
+    --color-de-fondo: #F5F5F5;
+   --color-de-link: #000;
+   --color-de-fondo-oscuro: #EAF2FD;
+
+   verdeazul: #58ecff
+
+   Color de fondo oscuro anterior, posible definitivo:  #eafbfd
+   otro posible: #c1f9ff84
+
+    #12d9f473  main color rebajado para fondo oscuro
+*/
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: var(--color-de-fondo) ;
+    font-family: 'Raleway';
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+ol, ul,li {
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: var(--color-de-link);
+}
+
+/*En este desafío nosostros gustaríamos que ustedes intentaran utilizar la metodología BEM. 
+
+Lo que es el BEM?
+
+BEM (Bloque, Elemento, Modificador) es un enfoque basado en componentes para el 
+desarrollo web. La idea detrás de esto es dividir la interfaz de usuario en bloques
+independientes. Esto hace que el desarrollo de la interfaz sea fácil y rápido, incluso
+con una interfaz de usuario compleja, y permite la reutilización del código existente sin copiar y pegar.
+
+Enlace de la documentación oficial!
+https://en.bem.info/methodology/quick-start/*/
+
+/* -------------------------------------------------------------------- */
+/* AGREGAR!!! */
+/* Agregar certificado de cursos y formaciones!!! */
+
+/* -------------------------------------------------------------------- */
+
+/*Sección Menu*/
+section {
+    scroll-margin-top: 8rem; /* Igual a la altura de la barra de navegación */
+}
+
+/* Estilo de la barra de navegación */
+section.menu {
+    display: flex;
+    justify-content: space-around;
+    height: 8rem;
+    align-items: center;
+    position: fixed; 
+    width: 100%; 
+    top: 0; 
+    left: 0; 
+    background-color: var(--color-de-fondo); 
+    z-index: 1000; 
+}
+
+.menu::before, .menu::after {
+    content: '';
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    background-color: #3A4857; /* color de las barras */
+    transition: transform 0.5s ease;
+    z-index: -1;  /* para barras por debajo del contenido */
+}
+
+/* colores anteriores:  #261b51b4
+
+ #020f1ae1  azul oscuro
+ gris azulado: #3A4857 ---- es bueno
+
+ Otras opciones: 
+ Versión 2:
+
+Fondo de la barra de navegación: #394653
+Barras animadas: #2B3745
+Versión 3:
+
+Fondo de la barra de navegación: #2A3743
+Barras animadas: #1C2731
+Versión 4:
+
+Fondo de la barra de navegación: #1C2A34
+Barras animadas: #0E1A24
+
+ */
+
+.menu::before {
+    top: 0;
+    left: -100%;
+}
+
+.menu::after {
+    bottom: 0;
+    right: -100%;
+}
+
+.menu:hover::before {
+    transform: translateX(100%);
+}
+
+.menu:hover::after {
+    transform: translateX(-100%);
+}
+
+.menu__header {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+.fa-solid.fa-terminal {
+    font-size: 3rem; 
+    margin-right: 8px; 
+    color: #12d9f4;
+}
+
+@keyframes parpadeo {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  
+
+.menu__list {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+.menu__title {
+    font-size: 3rem;
+}
+
+.menu__title .nombreF {
+    color: #12d9f4; 
+}
+
+/* Efecto hover para el nombre completo al hacer hover en la barra */
+.menu:hover .menu__title .nombreF {
+    color: #ffffff;
+}
+
+/* Efectos hover para el icono al hacer hover en la barra */
+.menu:hover .fa-solid.fa-terminal {
+    color: #26e6ff;
+    animation: parpadeo 1s infinite;
+}
+
+.menu:hover .menu__title .apellidoH {
+    color: #26e6ff;
+}
+
+/* Efecto hover específico para el apellido */
+.menu__title .apellidoH {
+    transition: color 0.3s ease, transform 0.3s ease; /* Añade transición para color y transform */
+}
+
+.menu__title a:hover .apellidoH {
+    color: #12d9f4; /* Color original */
+    text-shadow: 0 0 20px #12d9f4;
+}
+
+/* Efecto hover para el icono cuando se posisiona en el nombre */
+.menu__header:hover .fa-solid.fa-terminal {
+    color: #12d9f4;
+    text-shadow: 0 0 20px #12d9f4;
+}
+
+/* Estilos de los enlaces en la barra de navegación */
+.menu__list a {
+    font-size: 1.8rem;
+    color: #000000; /* Color inicial de los enlaces */
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+/* Efecto hover para la barra de navegación */
+.menu:hover .menu__list a {
+    color: #ffffff; /* Color de los enlaces cuando se hace hover en la barra */
+}
+
+/* Efecto hover para los enlaces individuales */
+.menu:hover .menu__list__item a:hover {
+    color: #00d9ff; /* Color de los enlaces en hover individual */
+}
+/* Aqui termina prueba */
+
+/* Sección Title */
+section.title {
+    padding: 50px 175px;
+    margin-top: 8rem;
+}
+
+.title__div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+/* foto de perfil */
+.title__profile {
+    width: 40%;
+    border-radius: 50%;
+    border: 5px solid #97c4ca;
+    transition: transform 0.5s, box-shadow 0.5s, border 0.5s;
+    
+    
+}
+
+
+
+.title__profile:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 5px solid #2BDEFD;
+}
+
+.title__network {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.title__network__item {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+/* Estilos de links network cuando hover */
+.title__network__item:hover {
+    cursor: pointer;
+    transform: scale(1.22);
+    transition: transform 0.3s ease;
+    font-weight: 700;
+}
+
+.title__network__item a {
+    font-size: 20px;
+    color: var(--color-de-link);
+    transition: color 0.3s ease;
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+    /* flex-direction: row-reverse; */
+}
+
+/* Efecto de escala al hacer hover */
+.icono__redes {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.title__network__item:hover .icono__redes {
+    transform: scale(1.1);
+}
+
+/* Selección individual de los iconos por posición */
+.title__network__item:nth-of-type(1) .icono__redes {
+    color: #181717; /* Color para GitHub */
+    
+}
+
+.title__network__item:nth-of-type(2) .icono__redes {
+    color: #0A66C2; /* Color para LinkedIn */
+}
+
+.title__network__item:nth-of-type(3) .icono__redes {
+    color: #E4405F; /* Color para Instagram */
+}
+
+.title__network__item:nth-of-type(4) .icono__redes {
+    color: #0077B5; /* Color para el Currículo */
+}
+
+/* Color uniforme para el texto de los enlaces */
+.title__network__item a {
+    color: var(--color-de-link);
+    transition: color 0.3s ease;
+}
+
+.title__network__item:nth-of-type(1):hover a {
+    color: #333; /* Nuevo color para GitHub al pasar el mouse */
+}
+
+.title__network__item:nth-of-type(2):hover a {
+    color: #0077b5; /* Nuevo color para LinkedIn al pasar el mouse */
+}
+
+.title__network__item:nth-of-type(3):hover a {
+    color: #C13584; /* Nuevo color para Instagram al pasar el mouse */
+}
+
+.title__network__item:nth-of-type(4):hover a {
+    color: #00A3E0; /* Nuevo color para el Currículo al pasar el mouse */
+}
+
+.title__bio {
+    font-size: 5rem;
+}
+
+/* Subtitulo bold/normal */
+.title__subsection {
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+
+
+/*Sección About*/
+/* Sección sobre mí */
+section.about {
+    background-color: var(--color-de-fondo-oscuro); 
+    padding: 40px 20px; 
+}
+
+/* Contenedor */
+.about__container {
+    max-width: 900px; 
+    margin: 0 auto; 
+    background: #daf9ff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    
+}
+
+/* título */
+.about__title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem; 
+    color: rgba(0, 41, 72, 0.977);
+}
+
+/* párrafos */
+.about__paragraph {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem; 
+    line-height: 1.6;
+    color: #004865;
+}
+
+/* firma */
+.about__firma {
+    display: block;
+    margin: 2rem auto 0;
+    width: 40%;
+    border-top: 2px solid var(--color-principal);
+    border-bottom: 2px solid var(--color-principal);
+    padding: 1rem 0;
+}
+
+
+
+
+
+
+/* sección de Skills */
+section.skills {
+    background-color: var(--color-de-fondo); 
+    padding: 10px 175px; 
+    text-align: center; 
+}
+
+/* Estilo del título */
+.skills__title {
+    font-size: 2.5rem; 
+    margin: 30px; 
+    color: #333; /* usar un tono parecido a #0093ad */
+
+}
+
+/* Contenedor de habilidades */
+.skills__line {
+    display: flex; 
+    justify-content: space-between; 
+    gap: 40px; 
+    flex-wrap: wrap;
+}
+
+
+/* Estilos para cada habilidad */
+.skills__box {
+    width: 150px; 
+    background-color: #fff; 
+    padding: 20px; 
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 23px; /* Ajustar borde 8-40 px */
+    transition: transform 0.3s ease; /* Transición al pasar el mouse */
+    /* distribucion */
+    display: flex;
+    /* flex-direction: column;   */
+    justify-content: center;
+    align-items: center; 
+}
+
+/* Efecto de hover para las habilidades */
+.skills__box:hover {
+    transform: translateY(-20px)  scale(1.05); /* Levantar al pasar el mouse */
+    box-shadow: 10px 10px 50px black;
+}
+
+.skills__box ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos del ícono HTML5 */
+.skills__icono {
+    font-size: 7rem;
+    margin-bottom: 10px;
+}
+
+/* estilos de los iconos */
+.fa-brands.fa-html5{    
+    color: #ff5500;
+    
+}
+
+.fa-brands.fa-css3-alt {
+    color: #00098e;
+    transition: transform .5s ease;
+}
+
+
+
+/* Estilos del nombre de la habilidad */
+.skills__name {
+    font-size: 1.5rem; 
+    /* color: #00098e;  */
+    color: #003d56;
+    text-align: center; 
+    /* transision */
+    transition: transform .7s ease;
+}
+
+.skills__box:hover .skills__name {
+    transform: scale(1.2);
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.skills__box:hover .skills__name--html { 
+    color: #E34F26;
+}
+
+.skills__box:hover .skills__name--css { 
+    color: #264DE4;
+}
+
+.skills__box:hover .skills__name--js { 
+    color: #e3ca0b;
+}
+
+.skills__box:hover .skills__name--logica { 
+    /* color: #9b59b6; */
+    color: #F05032;
+    transform: scale(1.1);
+}
+
+.skills__box:hover .skills__name--github { 
+    /* color: #F05032; */
+    color: #806AFB;
+}
+
+.skills__box:hover .skills__name--react { 
+    /* color: #61DAFB; */
+    /* color: #00009c;  */
+    color: #0f98b7;
+}
+/* ------------------------------------------------------------------------------ */
+/* ANIMACIONES */
+/* animacion giro */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* animacion pulso */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* animacion brillo */
+@keyframes shine {
+    0% { opacity: 1; }
+    50% { color: rgb(92, 209, 255); }
+    100% { opacity: 1; }
+}
+
+/* animacion Desvanecimiento */
+@keyframes fade {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* animacion rebote */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(-20px) scaleX(1.2);
+    }
+    50% {
+        transform: translateY(0) scaleX(1);
+    }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px) rotate(5deg); }
+    50% { transform: translateX(5px) rotate(-5deg); }
+    75% { transform: translateX(-5px) rotate(5deg); }
+    100% { transform: translateX(0); }
+}
+
+/* animacion flip */
+@keyframes subirYGirar {
+    0% {
+        transform: translateY(0px) rotateY(0deg);
+    }
+    25% {
+        transform: translateY(-20px) rotateY(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotateY(180deg);
+    }
+    75% {
+        transform: translateY(-20px) rotateY(0deg);
+    }
+    100% {
+        transform: translateY(0px) rotateY(0deg);
+    }
+} 
+
+.skills__box:hover .fa-html5 {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.skills__box:hover .fa-css3-alt {
+    animation: shine 1s ease-in-out infinite;
+    transform: scale(1.1);
+}
+
+.skills__box:hover .fa-js {
+    animation: subirYGirar 1s ease-in-out infinite;
+}
+
+/* efecto para icono de react */
+/* respaldo de efecto react */
+/* .skills__box:hover .fa-react {
+    color: #2ec7ea; 
+    animation: spin 2s linear infinite, glow 1.5s ease-in-out infinite;
+
+} */
+
+.fa-react {
+    color: #58C4DC;
+    transition: scale .7s ease;
+}
+/* .skills__box:hover .fa-react {
+    color: #2ec7ea; 
+    animation: spin 2s linear infinite;
+    scale: 1.3;
+} */
+
+.skills__box:hover .fa-react {
+    color: #26e6ff; 
+    /* color: #58C4DC; */
+    text-shadow: 0 0 40px #12d9f4;
+    animation: spin 2s linear infinite;
+    scale: 1.2;
+}
+
+/* Animación de resplandor */
+/* @keyframes glow {
+    0%, 100% { text-shadow: 0 0 5px rgba(0, 94, 255, 0.971); }
+    50% 
+} */
+/* @keyframes glow {
+    0%, 100% { text-shadow: 0 0 5px #58C4DC; }
+    50% { text-shadow: 0 0 20px rgb(250, 138, 138); transform: scale(1.4); color: rgb(222, 18, 69);}
+} */
+/* ------------------------------------------------------ */
+
+
+
+/* cambiar */
+
+.skills__box:hover .fa-js {
+    animation: subirYGirar 3s ease-in-out infinite;
+}
+
+.skills__box:hover .fa-code {
+    animation: bounce 1.9s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+.skills__box:hover .fa-github {
+    animation: shake 2s ease-in-out infinite;
+    /* color: #0366D6; Azul característico de los enlaces de GitHub */
+    color: #806AFB;
+}
+
+
+/*Sección Hobbies*/
+
+section.hobbies{
+    background-color: var(--color-de-fondo);
+    padding: 10px 175px 60px; 
+    text-align: center;
+}
+
+/* Estilo del título */
+.hobbies__title {
+    font-size: 2.5rem; 
+    margin-bottom: 30px; 
+    color: #333; 
+}
+
+/* Contenedor de hobbies */
+.hobbies__line {
+    display: flex; 
+    justify-content: space-between; 
+    gap: 40px; 
+    flex-wrap: wrap;
+}
+
+/* Estilos para cada contenedor */
+.hobbies__box {
+    width: 150px; 
+    background-color: #fff; 
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 23px; 
+    transition: transform 0.3s ease; 
+
+    /* distribucion */
+    display: flex; 
+    /* flex-direction: column;*/
+    justify-content: center;
+    align-items: center; 
+}
+
+.hobbies__box ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos del nombre del hobby */
+.hobbies__name {
+    font-size: 1.5rem; 
+    /* color: #007d8e; */
+    color: #00acc3;
+    text-align: center; 
+    /* transision */
+    transition: transform .7s ease;
+
+}
+
+.hobbies__icono {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    /* color general */
+    color: #12d9f4;
+}
+
+
+/* Animación estándar para todos los hobbies ------------------------------*/
+
+/* Animación hobbies */
+@keyframes bounce-vertical {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.hobbies__box:hover .hobbies__icono {
+    animation: bounce-vertical .6s ease-in-out infinite;
+}
+
+.hobbies__box:hover .fa-guitar,
+.hobbies__box:hover .fa-music,
+.hobbies__box:hover .fa-dumbbell,
+.hobbies__box:hover .fa-tv,
+.hobbies__box:hover .fa-book,
+.hobbies__box:hover .fa-kitchen-set{
+    animation: swing 1.2s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+/* Otros animaciones */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes swing {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+    100% { transform: rotate(0deg); }
+}
+/* agregar mas animaciones */
+
+.hobbies__box:hover {
+    transform: translateY(-20px); /* Levantar contenedor*/
+    /* box-shadow: 5px 5px 12px #016c9e; */
+    box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.hobbies__box:hover .hobbies__name {
+    transform: scale(1.1);
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* animaciones */
+
+/* .hobbies__box:hover .fa-music {
+    animation: swing 1s ease-in-out infinite;
+} */
+
+/* prueba */
+
+
+/* Experiencia Académica*/
+
+section.academic{
+    background-color: var(--color-de-fondo-oscuro);
+    text-align: center;
+    padding: 20px 175px 80px;
+}
+
+.academic__title {
+    font-size: 2.5rem; 
+    margin-bottom: 30px; 
+    color: #333; 
+}
+
+.academic__courses {
+    display: flex;
+    justify-content: center; /* cambiar a space-evenly o around si se agregan mas formaciones */
+    gap: 120px;
+    flex-wrap: wrap;
+}
+
+.academic__courses__box {
+    /* distibucion */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* estilos */
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 124, 0.216);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de hover para los cursos */
+.academic__courses__box:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 8px 16px rgba(0, 3, 38, 0.674); 
+}
+
+.academic__courses__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.academic__courses__item__title, 
+.academic__courses__item__subtitle {
+    text-align: left;
+
+}
+
+/* imagenes formacion academica */
+.academic__courses__item__img {
+    padding: 20px;
+}
+
+.cambio__color {
+    width: 90%;
+    filter: brightness(0) saturate(100%) invert(45%) sepia(54%) saturate(1721%) hue-rotate(162deg) brightness(104%) contrast(98%);
+}
+
+/* titulo formacion */
+.academic__courses__item__title h4 {
+    font-size: 1.9rem;
+    margin: 15px 0;
+    padding: 0;
+}
+
+/* fecha formacion */
+.academic__courses__item__subtitle p {
+    font-size: 1.7rem;
+    margin: 15px 0;
+    padding: 0;
+}
+
+/* experiencia*/
+
+section.experience{
+    background-color: var(--color-de-fondo);
+    text-align: center;
+    /* padding: 5px 175px; */
+    padding: 5px 50px;
+}
+
+.experience__section__title {
+    font-size: 2.5rem; 
+    margin: 40px 0 30px; 
+    color: #333;
+}
+
+.experience__box {
+    margin-bottom: 30px;
+    justify-content: space-evenly;
+    gap: 15px;
+}
+
+.experience .experience__box:nth-of-type(odd) {
+    display: flex;
+    
+}
+
+.experience .experience__box:nth-of-type(even) {
+    display: flex;
+    flex-direction: row-reverse;
+    
+}
+
+.experience__img {
+    width: 50%;
+    border-radius: 19px;
+    box-shadow: 0 4px 8px rgba(46, 0, 232, 0.1);
+    /* Ajustar scale img */
+    transition: box-shadow 0.3s ease, transform 0.6s ease;
+}
+
+.experience__img:hover {
+    transform: scale(1.04);
+}
+
+/* falta revisar, el 2 elige al 1 y el 3 elige al 2 */
+/* Si no, regresar a sombra normal para todos los proyectos */
+.experience__box:nth-child(2):hover .experience__img {
+    box-shadow: 0 0 20px rgb(3, 171, 255);
+}
+
+.experience__box:nth-child(3):hover .experience__img {
+    box-shadow: 0 0 20px rgb(64, 22, 14);
+    /* cambiar para aluraplay */
+}
+
+.experience__box:nth-child(4):hover .experience__img {
+    box-shadow: 0 0 20px rgb(0, 130, 153);
+}
+
+.experience__box:nth-child(5):hover .experience__img {
+    box-shadow: 0 0 20px rgb(37, 63, 99);
+}
+
+
+
+.experience__info {
+    margin: 0;
+    padding: 100px;
+    transition: color 0.3s ease;
+}
+
+.experience__info:hover {
+    color: #003c7c; 
+}
+
+.experience__title {
+    font-size: 1.9rem;
+    margin: 15px 0;
+    padding: 0;
+    text-align: left;
+
+    transition: transform 0.4s ease;
+}
+
+.experience__title:hover {
+    transform: scale(1.05); 
+    /* cambiar tipo de sombra */
+    text-shadow: 0 0 20px rgb(62, 83, 124);
+}
+
+.experience__text {
+    font-size: 1.7rem;
+    margin: 15px 0;
+    padding: 0;
+    font-weight: normal;
+    text-align: left;
+}
+
+.experience__description {
+    text-align: left;
+}
+
+.experiencia__botao--repo {
+    font-size: 1.5rem;
+    padding: 15px;
+    border: 1px solid #0073bbe0;
+    background-color: transparent;
+    color: #0073bbe0;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.experience__botao--demo {
+    font-size: 1.5rem;
+    padding: 15px;
+    border: 1px solid #0073bbe0;
+    background-color: #0073bbe0;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.experiencia__botao--repo:hover {
+    background-color: #0073bbe0;
+    color: #fff;
+}
+
+.experience__botao--demo:hover {
+    background-color: #16a1bd; 
+    color: #fff; /* Cambio el color del texto al hacer hover */
+    border: 1px solid #16a1bd;
+}
+
+
+
+/*Contacto*/
+ 
+/* BORRADOR */
+/* contacto prueba */
+/* Sección de Contacto */
+/* Corregir comentarios */
+/* Sección de Contacto */
+/* Estilos para el efecto de etiqueta flotante */
+/*Contacto*/
+ 
+/* BORRADOR */
+/* contacto prueba */
+/* Sección de Contacto */
+/* Corregir comentarios */
+
+/* Evitar que el textarea crezca !!!!! */
+section.formcontato {
+    background-color: var(--color-de-fondo-oscuro);
+    padding: 30px 175px;
+    text-align: center;
+}
+
+.formcontato__contacto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    background-color: #081729;
+    border-radius: 15px;
+    padding: 30px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.formcontato--esquerda {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.formcontato__img {
+    /* corregir 2 */
+    min-width: 30rem;
+    max-width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.formcontato__text {
+    flex: 1;
+    min-width: 30rem;
+    max-width: 500px; 
+    text-align: left;
+    margin: 0 auto;
+}
+
+.formcontato__title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0  0 10px;
+    color: #b78a6f;
+    /* ajustar 
+    color anterior: rgb(117, 100, 73)*/
+    letter-spacing: 4px;
+}
+
+.formcontato__subtext1 {
+    font-size: 2rem;
+    /* ajustar */
+    letter-spacing: 1px;
+    color: rgb(240, 220, 183);
+    font-weight: 700;
+    margin: 0  0 10px;
+}
+
+.formcontato__subtext2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: rgb(251, 245, 233);
+    font-weight: normal;
+    /* ajustar */
+    letter-spacing: 1px;
+    margin: 0  0 30px;
+}
+
+.formcontato__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formcontato__input,
+.formcontato__textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    /* ajustar */
+    color: rgba(6, 0, 88, 0.996);
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.formcontato__textarea {
+    resize: none;
+    overflow: auto;
+}
+
+
+.formcontato__input:focus,
+.formcontato__textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.formcontato__botao {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #00bfffdf;
+    /* color anterior: #007bff */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.formcontato__botao:hover {
+    background-color:  #00b2ca;
+    /* background-color: #008cb3; */
+    
+    /* color anterio: #0056b3 */
+    transform: scale(1.05);
+}
+
+/* Estilos para el efecto de etiqueta flotante */
+.inputGroup {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 3px 0 3px 0;
+    max-width: 500px; /* Ajustar*/
+    position: relative;
+}
+
+.inputGroup input, .inputGroup textarea {
+    font-size: 100%;
+    padding: 0.8em;
+
+    line-height: 1.3;
+
+    outline: none;
+    border: 2px solid rgb(200, 200, 200);
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inputGroup textarea {
+    height: 100px; /* Ajustar*/
+}
+
+.inputGroup label {
+    font-size: 100%;
+    position: absolute;
+    left: 0.8em;
+    top: 10%; /* Nueva línea */
+    padding: 0.4em;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: rgb(100, 100, 100);
+    transform: translateY(0%); /* Nueva línea */
+    background-color: #ffffff; /* color de label cuando esta abajo */
+}
+
+.inputGroup textarea ~ label {
+    top: 5%; /* Nueva línea */
+}
+
+.inputGroup input:focus, .inputGroup textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.inputGroup input:focus ~ label, .inputGroup textarea:focus ~ label, .inputGroup input:valid ~ label, .inputGroup textarea:valid ~ label {
+    transform: translateY(-70%) scale(0.9);   /* que tan arriba queda */
+    margin-left: 0.5em;
+    padding: 0 .2em;
+    background-color: #007bff;  /* Color cuando etiqueta esta arriba */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.607);
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+/* colorea cuando es valido */
+.inputGroup input:valid~label, .inputGroup textarea:valid~label {
+    margin-left: 0.5em;
+    padding: 0 .2em;
+    /* background-color: #00bdbaf3; */
+    background-color:  #00b2ca;
+    /* background-color: #26e6ff; */
+    /* color: #ffffff; */
+    color: rgb(255, 255, 255);
+    /* color anterio 
+    rgb(0, 137, 164)
+     #12d9f4*/
+}
+
+.inputGroup input:valid, .inputGroup textarea:valid {
+    border-color: #00fbff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*footeer*/
+/* Footer */
+
+
+section.footer {
+    background-color: #081729e6;
+    padding: 30px 10px;
+    /* padding: 30px 175px; */
+    text-align: center;
+    color: white;
+    font-size: 1.8rem;
+}
+/* colores anteriores: #140732
+#020f1ae1
+ */
+
+.footer__rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.footer__rodape p {
+    margin: 5px 0;
+}
+
+.footer__rodape a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease-out, color 0.3s ease-out;
+    padding-left: 2px;
+}
+
+.footer__rodape a:hover {
+    transform: scale(1.05);
+    color: #12d9f4; 
+    text-shadow: 0 0 20px #12d9f4;
+    transform-origin: center;
+}
+
+
+
+/* barra de desplazamiento */
+/* Para navegadores basados en WebKit */
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2C3E50; /* Color de fondo del área de la barra */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #a9f4ffca; /* Color de la barra */
+    border-radius: 10px;
+    border: 3px solid #2C3E50; /* Espacio alrededor de la barra */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #12d9f4; /* Color de la barra al hacer hover */
+}
+
+
+/* Vamos a desafiarnos trabajando con responsividad?
+Utiliza las referencias de los breakpoints @media abajo */
+
+/* Otros MQ */
+@media (max-width: 1440px) {
+    /* menu */
+    .menu__title {
+        font-size: 2.6rem;
+    }
+
+    .fa-solid.fa-terminal {
+        font-size: 2.6rem;
+    }
+
+    section.skills {
+        padding: 10px 100px;
+    }
+
+    .skills__line {
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+    }
+
+    /* Hobbies */
+    section.hobbies {
+        padding: 10px 100px 60px;
+    }
+
+    .hobbies__line {
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+    }
+
+    /* experience */
+    section.experience {
+        padding: 5px 30px;
+    }
+
+    .experience__info {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 1067px) and (min-width: 769px) {
+    /* Tus estilos aquí */
+    section.menu {
+        gap: 15px;
+        justify-content: space-between;
+    }
+
+    .menu__title {
+        font-size: 2.3rem;
+    }
+
+    .fa-solid.fa-terminal {
+        font-size: 2.3rem;
+    }
+
+    .menu__header {
+        margin-left: 15px;
+    }
+
+    .menu__list {
+        margin-right: 15px;
+        gap: 10px;
+        padding: 0;
+    }
+
+    .menu__list a {
+        font-size: 1.3rem;
+    }
+
+    .menu__header img {
+        display: none;
+    }
+
+    /* Title */
+    /*title*/
+section.title {
+    padding: 50px 80px;
+    margin-top: 6rem;
+}
+
+.title__container {
+    min-width: 400px;
+}
+
+.title__profile {
+    width: 60%; 
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.title__bio {
+    font-size: 2.6rem;
+}
+
+/* Subtitulo bold/normal */
+.title__subsection {
+    font-size: 2.3rem;
+    font-weight: normal;
+}
+
+.title__network__item a {
+    font-size: 1.8rem;
+    color: var(--color-de-link);
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+    /* flex-direction: row-reverse; */
+}
+
+.title__div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.title__network {
+    text-align: center;
+}
+
+.skills__line {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Espacio entre las celdas */
+    justify-items: center; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+    /* Hobbies */
+    
+
+    .hobbies__line {
+        display: grid; 
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 30px; /* Espacio entre las celdas */
+        justify-items: center; 
+        align-items: center; 
+        justify-content: center; 
+    }
+
+    /* academic */
+    section.academic {
+        padding: 20px 50px 80px;
+        gap: 60px;
+    }
+
+    .academic__courses {
+        gap: 60px;
+    }
+
+    /* experience */
+    .experience__info {
+        padding: 15px;
+    }
+
+  }
+  
+
+/*Tablet*/
+@media (max-width: 768px) {
+
+/* Menú */
+.menu__list .menu__list__item:nth-of-type(1),
+.menu__list .menu__list__item:nth-of-type(2),
+.menu__list .menu__list__item:nth-of-type(3),
+.menu__list .menu__list__item:nth-of-type(4),
+.menu__list .menu__list__item:nth-of-type(5) {
+    display: none;
+}
+
+.fa-solid.fa-terminal {
+    font-size: 2.5rem;
+}
+
+.menu__title {
+    font-size: 2.5rem;
+}
+/*title*/
+section.title {
+    padding: 50px 40px;
+    margin-top: 6rem;
+}
+
+.title__profile {
+    width: 60%; 
+    margin: 0 auto;
+}
+
+.title__bio {
+    font-size: 2.6rem;
+}
+
+/* Subtitulo bold/normal */
+.title__subsection {
+    font-size: 2.3rem;
+    font-weight: normal;
+}
+
+.title__network__item a {
+    font-size: 1.8rem;
+    color: var(--color-de-link);
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+    /* flex-direction: row-reverse; */
+}
+
+.title__div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.title__network {
+    text-align: center;
+}
+/*Skills*/
+.skills__line {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Espacio entre las celdas */
+    justify-items: center; 
+    align-items: center; 
+    justify-content: center; 
+}
+.skills__box {
+    flex: none; 
+    margin: 0; 
+}
+/*Hobbies*/
+.hobbies__line {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Espacio entre las celdas */
+    justify-items: center; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.hobbies__box {
+    flex: none; 
+    margin: 0; 
+}
+/*Formación Académica*/
+section.academic {
+    padding: 20px 100px 80px;
+}
+
+.academic__courses {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/*Experiencia Profesional*/
+section.experience {
+    padding: 50px 40px;
+    margin-top: 8rem;
+}
+
+.experience__box {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.experience__img {
+    width: 90%;
+    margin: 0 30px;
+}
+
+.experience__info {
+    padding: 0;
+    align-self: flex-start;
+    margin-left: 100px;
+}
+
+.experience .experience__box:nth-of-type(odd) {
+    flex-direction: column;
+}
+
+.experience .experience__box:nth-of-type(even) {
+    flex-direction: column;
+}
+
+/* formulario */
+section.formcontato {
+    padding: 50px 60px;
+    margin-top: 8rem;
+    text-align: center;
+}
+
+.formcontato__contacto {
+    gap: 30px;
+    padding: 30px 20px;
+    /* corregir */
+}
+
+/* F */
+.footer__rodape a {
+    color: #12d9f4; 
+    text-shadow: 0 0 20px #12d9f4;
+}
+
+}
+
+@media (max-width: 550px) {
+    /* menu */
+    .menu__title {
+        font-size: 2rem;
+    }
+
+    .fa-solid.fa-terminal {
+        font-size: 2rem;
+    }
+    /* skills */
+    .skills__line {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+
+    /*Hobbies*/
+    .hobbies__line {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+}
+
+    /* experience */
+    /*Experiencia Profesional*/
+section.experience {
+    padding: 20px;
+    margin-top: 2rem;
+}
+
+.experience__img {
+    width: 100%;
+    margin: 0;
+}
+
+.experience__info {
+    margin-left: 10px;
+}
+        
+}
+
+@media (max-width: 500px) {
+    /*Menu*/
+section.menu {
+    justify-content: space-around;
+}
+
+.fa-solid.fa-terminal {
+    font-size: 1.7rem;
+}
+
+.menu__title {
+    font-size: 1.7rem;
+    margin: 0px;
+}
+
+    .menu__header {
+        margin-left: 10px;
+    }
+
+.menu__header img {
+    display: none;
+}
+
+.menu__list {
+    margin: 10px;
+    padding: 0;
+}
+
+.menu__list__item a {
+    font-size: 1.3rem;
+    font-weight: normal;
+    
+}
+
+    /* title */
+    .title__network {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 40px;
+    }
+    
+    .title__container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .title__network__item {
+        padding: 5px; 
+    }
+
+    .title__profile {
+        width: 80%; 
+    }
+
+    /* skills */
+    
+
+    /* academic */
+    section.academic {
+        padding: 20px 50px 80px;
+    }
+
+    /* experience */
+    /*Experiencia Profesional*/
+section.experience {
+    padding: 20px;
+    margin-top: 2rem;
+}
+
+.experience__img {
+    width: 100%;
+    margin: 0;
+}
+
+.experience__info {
+    margin-left: 10px;
+}
+
+    /*Contacto*/
+        section.formcontato {
+            padding: 10px;
+            margin-top: 4rem;
+            text-align: center;
+        }
+    
+        .formcontato__contacto {
+            padding: 50px 20px;
+            gap: 30px;
+            width: 97%;
+            margin: 0 auto;
+        }
+        /* Ya no es necesaria la seccion footer en mq's */
+        /* section.footer {
+            padding: 30px 30px;
+        } */
+}
+
+/*Mobile*/
+@media (max-width: 425px) {
+/*Menu*/
+section.menu {
+    justify-content: space-around;
+}
+
+.fa-solid.fa-terminal {
+    font-size: 1.6rem;
+    margin-right: 4px;
+}
+
+.menu__title {
+    font-size: 1.6rem;
+    margin: 0px;
+}
+
+.menu__header img {
+    display: none;
+}
+
+.menu__list {
+    margin: 10px;
+    padding: 0;
+}
+
+.menu__list__item a {
+    font-size: 1.3rem;
+    font-weight: normal;
+    
+}
+/*Titulo*/
+section.title {
+    padding: 50px 20px;
+    margin-top: 4rem;
+}
+
+.title__profile {
+    width: 80%; 
+}
+
+.title__div {
+    gap: 0px;
+}
+
+.title__bio {
+    font-size: 2rem;
+}
+
+/* Subtitulo bold/normal */
+.title__subsection {
+    font-size: 1.6rem;
+    font-weight: normal;
+}
+
+.title__network {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0;
+}
+
+.title__container {
+    display: flex;
+    flex-direction: column;
+    width: -webkit-fill-available;
+}
+
+.title__network__item {
+    padding: 5px; 
+}
+  
+/*Sección sobre mi*/
+.about__paragraph {
+    font-size: 1.6rem;
+}
+
+.about__firma {
+    width: 70%;
+}
+/*Skills*/
+section.skills {
+    padding: 0 30px;
+}
+.skills__line {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+}
+/*Hobbies*/
+.hobbies__line {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+}
+
+section.hobbies {
+    padding: 0 30px 20px;
+}
+/*Formación Académica*/
+
+
+section.academic {
+    padding: 5px 50px 60px;
+}
+
+.academic__courses {
+    gap: 30px;
+}
+/*Experiencia Profesional*/
+section.experience {
+    padding: 20px;
+    margin-top: 2rem;
+}
+
+.experience__img {
+    width: 100%;
+    margin: 0;
+}
+
+.experience__info {
+    margin-left: 10px;
+}
+ /*Contacto*/
+ section.formcontato {
+    padding: 10px;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.formcontato__contacto {
+    padding: 10px;
+    gap: 30px;
+    width: 97%;
+    margin: 0 auto;
+}
+
+.formcontato__text {
+    min-width: 20rem;
+}
+
+.inputGroup {
+    max-width: 100%;
+    /* cambie margen */
+    margin: 0;
+}
+
+.formcontato__img {
+    min-width: 20rem;
+    max-width: 80%;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+/*F */
+/* section.footer {
+    padding: 30px 30px;
+} */
+
+.footer__rodape a {
+    color: #12d9f4; 
+    text-shadow: 0 0 20px #12d9f4;
+}
+}
+
+
